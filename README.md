@@ -14,7 +14,7 @@ Creates a new script containing the code from the provided `repo`.
 ---
 `elemento:GetLocalPlayer(player: Player): LocalPlayer`
 
-Returns a `LocalPlayer` instance that is used to detect input for the given `player`.
+Returns a `LocalPlayer` instance that is used to detect input for the given `player` (see `LocalPlayer` documentation below).
 
 ---
 `elemento:GetMyPlayer(): Player?`
