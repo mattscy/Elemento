@@ -8,7 +8,7 @@ Creates a new script containing the code from the provided `repo`.
 - The `repo` should be in the format of `https://api.github.com/repos/{user}/{repo}/contents/{filePath}`
 - If `elevatedPrivilege` is false or empty, the script will only be able to modify the instances that it creates.
 - If `elevatedPrivilege` is true, the script will be able to modify any instances that the `runAs` has access to:
-  - If `runAs` is set to a faction, the script can modify anything belong to the faction.
+  - If `runAs` is set to a faction, the script can modify anything belonging to the faction.
   - If `runAs` is left empty, the script can modify anything that you have access to, including anything belonging to the factions that you are a member of.
 
 ---
