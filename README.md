@@ -59,6 +59,7 @@ Returns the client's [Mouse](https://create.roblox.com/docs/reference/engine/cla
 
 Creates a new instance of the given `className`. By default, the instance will be owned by the faction or the user that the script is running as. The `faction` should be specified if the script is running as a user and you want the instance to belong to a specific faction rather than that user.
 
+---
 `Instance:CanAccess(): bool`
 
 Returns true if the current script execution context has permissions to modify the instance.
