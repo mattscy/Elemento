@@ -70,3 +70,8 @@ Returns true if the current script execution context has permissions to modify t
 Returns the owner of the instance. 
 - If the instance belongs to a faction, this will return the faction name.
 - If the instance belongs to a player, this will return the player's UserId.
+
+---
+`Instance.Archivable: bool`
+
+Set Archivable to false for instances that should not be saved between game sessions.
