@@ -59,7 +59,7 @@ The following methods can be called on any instances.
 
 `Instance:CanAccess(): bool`
 
-Returns true if the current script execution context has access to modify the instance.
+Returns true if the current script execution context has permissions to modify the instance.
 
 ---
 `Instance:GetOwner(): string`
