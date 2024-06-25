@@ -56,6 +56,11 @@ Returns a client-specific service. Currently, the only available service is [Con
 Returns the client's [Mouse](https://create.roblox.com/docs/reference/engine/classes/Mouse).
 
 ---
+`LocalPlayer:GetLocalFolder(): Folder`
+
+Returns a folder that can be used to store instances that should only be visible to this client.
+
+---
 ## Instance
 `Instance.new(className: string, faction: string?): Instance`
 
