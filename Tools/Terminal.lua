@@ -85,7 +85,7 @@ execute.Parent = container
 execute.MouseButton1Click:Connect(function()
     local func, err = loadstring(terminal.Text)
     if func then
-        func()
+        pcall(func)
     else
         error("Error compiling script: " .. err)
     end
