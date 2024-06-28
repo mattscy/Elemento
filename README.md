@@ -1,6 +1,6 @@
 # Elemento Script Builder
 
-## Elemento
+## elemento
 
 `elemento:CreateScript(file: string, elevatedPrivilege: bool?, runAs: string?): Script`
 
