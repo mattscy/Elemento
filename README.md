@@ -86,6 +86,6 @@ Set Archivable to false for instances that should not be saved between game sess
 ---
 ## Globals
 
-`require(file): any`
+`require(file: string): any`
 
 Loads the code from a GitHub file and executes it in the current context, returning a value in a similar way to module scripts. Note that this will yield and load the latest version of the file's code without caching it. The `file` argument should be a GitHub file path in the format of `https://github.com/{user}/{repo}/blob/main/{path}`.
