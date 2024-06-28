@@ -23,6 +23,7 @@ function StartPlacing()
     placingPart.Anchored = true
     placingPart.CanCollide = false
     placingPart.CanQuery = false
+    placingPart.Archivable = false
     placingPart.Transparency = 0.5
     placingPart.Parent = lp:GetLocalFolder()
 
@@ -55,6 +56,7 @@ function Place()
         placingPart.Transparency = 0
         placingPart.CanCollide = true
         placingPart.CanQuery = true
+        placingPart.Archivable = true
         placingPart.Parent = workspace
         placingPart = nil
 
