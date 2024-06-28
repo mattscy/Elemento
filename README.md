@@ -84,7 +84,7 @@ Returns the owner of the instance.
 Set Archivable to false for instances that should not be saved between game sessions.
 
 ---
-## Globals
+## Other
 
 `require(file: string): any`
 
