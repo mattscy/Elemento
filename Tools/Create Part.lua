@@ -57,6 +57,8 @@ function Place()
         placingPart.CanQuery = true
         placingPart.Parent = workspace
         placingPart = nil
+
+        StartPlacing()
     end
 end
 
