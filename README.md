@@ -82,3 +82,10 @@ Returns the owner of the instance.
 `Instance.Archivable: bool`
 
 Set Archivable to false for instances that should not be saved between game sessions.
+
+---
+## Globals
+
+`require(file): any`
+
+Loads the code from a GitHub file and executes it in the current context. Note that this will yield and load the latest version of the file without caching. The `file` argument should be a GitHub file path in the format of `https://github.com/{user}/{repo}/blob/main/{path}`.
