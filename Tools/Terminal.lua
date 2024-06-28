@@ -103,5 +103,7 @@ clearOutput.MouseButton1Click:Connect(function()
 end)
 
 LS.MessageOut:Connect(function(message, messageType)
+    task.wait(1)
+    print("message received", message)
     output.Text = message .. "\n" .. output.Text
 end)
