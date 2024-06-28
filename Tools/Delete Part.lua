@@ -3,7 +3,7 @@ local PLR = game:GetService("Players")
 local deleteHighlight
 local selectedPart
 
-local placementMaid = {}
+local deleteMaid = {}
 
 
 function GetLocalPlayer()
@@ -24,7 +24,7 @@ function StartDeleting()
     deleteHighlight.Archivable = false
     deleteHighlight.Parent = lp:GetLocalFolder()
 
-    table.insert(placementMaid, mouse.Move:Connect(function()
+    table.insert(deleteMaid, mouse.Move:Connect(function()
         selectedPart = mouse.Target
         deleteHighlight.Adornee = selectedPart
     end))
@@ -32,10 +32,10 @@ end
 
 
 function StopDeleting()
-    for _, conn in pairs(placementMaid) do
+    for _, conn in pairs(deleteMaid) do
         conn:Disconnect()
     end
-    placementMaid = {}
+    deleteMaid = {}
 
     if deleteHighlight then
         deleteHighlight:Destroy()
