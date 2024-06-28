@@ -4,7 +4,7 @@
 
 `elemento:CreateScript(file: string, elevatedPrivilege: bool?, runAs: string?): Script`
 
-Creates a new script containing the code from the provided `repo`. 
+Creates a new script containing the code from the provided GitHub `file`. 
 - The `file` should be in the format of `https://github.com/{user}/{repo}/blob/main/{path}`
 - If `elevatedPrivilege` is false or empty, the script will only be able to modify:
   - Instances that the script creates, and
