@@ -6,8 +6,7 @@ local placementMaid = {}
 
 function GetLocalPlayer()
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
-    local localPlayer = elemento:GetLocalPlayer(player)
-    return localPlayer:GetMouse()
+    return elemento:GetLocalPlayer(player)
 end
 
 
