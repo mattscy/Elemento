@@ -26,7 +26,7 @@ function StartDeleting()
 
     table.insert(deleteMaid, mouse.Move:Connect(function()
         selectedPart = mouse.Target
-        if not selectedPart:CanAccess() then
+        if selectedPart and not selectedPart:CanAccess() then
             selectedPart = nil
         end
         deleteHighlight.Adornee = selectedPart
