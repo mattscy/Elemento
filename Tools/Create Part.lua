@@ -20,7 +20,7 @@ function StartPlacing()
     placingPart.Size = Vector3.new(2, 2, 2)
     placingPart.TopSurface = Enum.SurfaceType.Smooth
     placingPart.BottomSurface = Enum.SurfaceType.Smooth
-    placingPart.Anchored = TopSurface
+    placingPart.Anchored = true
     placingPart.CanCollide = false
     placingPart.CanQuery = false
     placingPart.Transparency = 0.5
