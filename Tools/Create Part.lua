@@ -32,7 +32,7 @@ function StartPlacing()
             math.round(mousePos.X),
             math.round(mousePos.Y),
             math.round(mousePos.Z)
-        )
+        ) + Vector3.fromNormalId(mouse.TargetSurface)
     end))
 end
 
