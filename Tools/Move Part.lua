@@ -113,9 +113,11 @@ function StopFreeMove()
         selectedPart.Transparency = 0
     end
 
-    CAS:UnbindAction("Rotate")
-    CAS:UnbindAction("Turn")
-    CAS = nil
+    if CAS then
+        CAS:UnbindAction("Rotate")
+        CAS:UnbindAction("Turn")
+        CAS = nil
+    end
 end
 
 
