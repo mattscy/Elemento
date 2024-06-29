@@ -20,6 +20,6 @@ end
 
 GiveTool("Create Part")
 GiveTool("Delete Part")
-
+GiveTool("Move Part")
 
 return true
