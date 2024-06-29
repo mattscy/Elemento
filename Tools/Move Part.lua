@@ -130,8 +130,8 @@ function OnEquip()
             if not draggingHandles and debounce == debounceVal then
                 StartFreeMove()
             end
-        end))
-    end)
+        end)
+    end))
 
     table.insert(selectMaid, mouse.Button1Up:Connect(function()
         draggingHandles = false
