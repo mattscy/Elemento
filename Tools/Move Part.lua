@@ -47,7 +47,7 @@ function StartFreeMove()
         selectedPart.Archivable = false
         selectedPart.Transparency = 0.5
 
-        table.insert(freeMoveMaid, mouse.Move:Connect(function()
+        local function MoveStep()
             local target = mouse.Target
 
             if target then
@@ -85,7 +85,10 @@ function StartFreeMove()
                 selectedPart.CFrame = rot + pos
 
             end
-        end))
+        end
+
+        table.insert(freeMoveMaid, mouse.Move:Connect(MoveStep))
+        MoveStep()
     end
 
     CAS:BindAction("Rotate", function(name, state)
@@ -174,10 +177,12 @@ function SelectPart()
         handles.Parent = player:GetLocalFolder()
 
         handles.MouseDrag:Connect(function(face, dist)
+            print("drag?")
             selectedPart.CFrame *= Vector3.fromNormalId(face)*dist
         end)
 
         handles.MouseButton1Down:Connect(function()
+            print("select?")
             draggingHandles = true
         end)
     end
