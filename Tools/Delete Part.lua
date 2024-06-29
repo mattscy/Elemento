@@ -6,23 +6,17 @@ local selectedPart
 local deleteMaid = {}
 
 
-function GetLocalPlayer()
-    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
-    return elemento:GetLocalPlayer(player)
-end
-
-
 function StartDeleting()
     StopDeleting()
 
-    local lp = GetLocalPlayer()
-    local mouse = lp:GetMouse()
+    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
+    local mouse = player:GetMouse()
 
     deleteHighlight = Instance.new("Highlight")
     deleteHighlight.FillTransparency = 0.5
     deleteHighlight.FillColor = Color3.new(1, 0, 0)
     deleteHighlight.Archivable = false
-    deleteHighlight.Parent = lp:GetLocalFolder()
+    deleteHighlight.Parent = player:GetLocalFolder()
 
     table.insert(deleteMaid, mouse.Move:Connect(function()
         selectedPart = mouse.Target

@@ -4,17 +4,11 @@ local placingPart
 local placementMaid = {}
 
 
-function GetLocalPlayer()
-    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
-    return elemento:GetLocalPlayer(player)
-end
-
-
 function StartPlacing()
     StopPlacing()
 
-    local lp = GetLocalPlayer()
-    local mouse = lp:GetMouse()
+    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
+    local mouse = player:GetMouse()
 
     placingPart = Instance.new("Part")
     placingPart.Size = Vector3.new(2, 2, 2)
@@ -25,7 +19,7 @@ function StartPlacing()
     placingPart.CanQuery = false
     placingPart.Archivable = false
     placingPart.Transparency = 0.5
-    placingPart.Parent = lp:GetLocalFolder()
+    placingPart.Parent = player:GetLocalFolder()
 
     table.insert(placementMaid, mouse.Move:Connect(function()
         local mousePos = mouse.Hit.Position
