@@ -5,7 +5,7 @@ local selectedPart
 local selectMaid = {}
 local freeMoveMaid = {}
 local freeMoveRot = CFrame.new()
-local draggingHandles = false
+local dragStartPos
 local CAS
 local Epsilon = 0.1
 
@@ -136,14 +136,14 @@ function OnEquip()
         local debounceVal = debounce
 
         task.defer(function()
-            if not draggingHandles and debounce == debounceVal then
+            if not dragStartCF and debounce == debounceVal then
                 StartFreeMove()
             end
         end)
     end))
 
     table.insert(selectMaid, mouse.Button1Up:Connect(function()
-        draggingHandles = false
+        dragStartCF = nil
         debounce += 1
 
         StopFreeMove()
@@ -176,12 +176,12 @@ function SelectPart()
         handles.Adornee = selectedPart
         handles.Parent = player.PlayerGui
 
-        handles.MouseDrag:Connect(function(face, dist)
-            selectedPart.CFrame *= CFrame.new(Vector3.fromNormalId(face)*dist)
+        handles.MouseButton1Down:Connect(function()
+            dragStartCF = selectedPart:GetPivot()
         end)
 
-        handles.MouseButton1Down:Connect(function()
-            draggingHandles = true
+        handles.MouseDrag:Connect(function(face, dist)
+            selectedPart.CFrame = dragStartCF * CFrame.new(Vector3.fromNormalId(face)*dist)
         end)
     end
 end
