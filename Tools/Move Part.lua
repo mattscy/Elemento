@@ -7,6 +7,8 @@ local freeMoveMaid = {}
 local freeMoveRot = CFrame.new()
 local draggingHandles = false
 local CAS
+local Epsilon = 0.1
+
 
 local SurfaceAxisMap = {
     [Enum.NormalId.Front] = "Z";
@@ -63,9 +65,9 @@ function StartFreeMove()
                 local targetSurfaceMidCF = CFrame.lookAlong(targetSurfaceMidPos, normal, perpNormal)
 
                 local offsetDist
-                if rot.LookVector:FuzzyEq(normal) or rot.LookVector:FuzzyEq(-normal) then
+                if rot.LookVector:FuzzyEq(normal, Epsilon) or rot.LookVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.Z/2
-                elseif rot.RightVector:FuzzyEq(normal) or rot.RightVector:FuzzyEq(-normal) then
+                elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
                 else
                     offsetDist = selectedPart.Size.Y/2
@@ -86,13 +88,13 @@ function StartFreeMove()
         end))
     end
 
-    CAS:BindAction("Rotate", function(state)
+    CAS:BindAction("Rotate", function(name, state)
         if state == Enum.UserInputState.Begin then
             freeMoveRot *= CFrame.Angles(0, math.rad(90), 0)
         end
     end, false, Enum.KeyCode.R)
 
-    CAS:BindAction("Turn", function(state)
+    CAS:BindAction("Turn", function(name, state)
         if state == Enum.UserInputState.Begin then
             freeMoveRot *= CFrame.Angles(math.rad(90), 0, 0)
         end
