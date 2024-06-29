@@ -174,15 +174,13 @@ function SelectPart()
         handles.Style = Enum.HandlesStyle.Movement
         handles.Archivable = false
         handles.Adornee = selectedPart
-        handles.Parent = player:GetLocalFolder()
+        handles.Parent = player.PlayerGui
 
         handles.MouseDrag:Connect(function(face, dist)
-            print("drag?")
-            selectedPart.CFrame *= Vector3.fromNormalId(face)*dist
+            selectedPart.CFrame *= CFrame.new(Vector3.fromNormalId(face)*dist)
         end)
 
         handles.MouseButton1Down:Connect(function()
-            print("select?")
             draggingHandles = true
         end)
     end
