@@ -1,6 +1,6 @@
 local PLR = game:GetService("Players")
 
-local FreeMove = require("")
+local FreeMove = require("https://github.com/mattscy/Elemento/blob/main/Tools/Modules/Free%20Move%20Part.lua")
 
 local handles
 local selectedPart
@@ -19,7 +19,7 @@ function OnEquip()
 
         task.defer(function()
             if not dragStartCF and debounce == currentDebounce then
-                StartFreeMove()
+                FreeMove.StartFreeMove()
             end
         end)
     end))
@@ -28,7 +28,7 @@ function OnEquip()
         dragStartCF = nil
         debounce += 1
 
-        StopFreeMove()
+        FreeMove.StopFreeMove()
         SelectPart()
     end))
 
@@ -41,7 +41,7 @@ function OnUnequip()
     end
     selectMaid = {}
 
-    StopFreeMove()
+    FreeMove.StopFreeMove()
     DeselectPart()
 end
 
