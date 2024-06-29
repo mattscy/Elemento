@@ -181,7 +181,7 @@ function SelectPart()
         end)
 
         handles.MouseDrag:Connect(function(face, dist)
-            selectedPart.CFrame = dragStartCF * CFrame.new(Vector3.fromNormalId(face)*dist)
+            selectedPart.CFrame = dragStartCF * CFrame.new(Vector3.fromNormalId(face)*math.round(dist))
         end)
     end
 end
