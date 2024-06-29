@@ -6,6 +6,7 @@ local selectMaid = {}
 local freeMoveMaid = {}
 local freeMoveRot = CFrame.new()
 local draggingHandles = false
+local CAS
 
 local SurfaceAxisMap = {
     [Enum.NormalId.Front] = "Z";
@@ -32,7 +33,7 @@ function StartFreeMove()
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
     local mouse = player:GetMouse()
-    local CAS = player:GetService("ContextActionService")
+    CAS = player:GetService("ContextActionService")
 
     selectedPart = mouse.Target
     if selectedPart and not selectedPart:CanAccess() then
@@ -112,10 +113,9 @@ function StopFreeMove()
         selectedPart.Transparency = 0
     end
 
-    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
-    local CAS = player:GetService("ContextActionService")
     CAS:UnbindAction("Rotate")
     CAS:UnbindAction("Turn")
+    CAS = nil
 end
 
 
