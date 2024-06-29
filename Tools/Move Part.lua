@@ -105,15 +105,17 @@ function StopFreeMove()
     end
     freeMoveMaid = {}
 
-    CAS:UnbindAction("Rotate")
-    CAS:UnbindAction("Turn")
-
     if selectedPart then
         selectedPart.CanCollide = true
         selectedPart.CanQuery = true
         selectedPart.Archivable = true
         selectedPart.Transparency = 0
     end
+
+    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
+    local CAS = player:GetService("ContextActionService")
+    CAS:UnbindAction("Rotate")
+    CAS:UnbindAction("Turn")
 end
 
 
