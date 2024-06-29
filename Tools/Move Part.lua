@@ -133,10 +133,10 @@ function OnEquip()
     local debounce = 0
     table.insert(selectMaid, mouse.Button1Down:Connect(function()
         debounce += 1
-        local debounceVal = debounce
+        local currentDebounce = debounce
 
         task.defer(function()
-            if not dragStartCF and debounce == debounceVal then
+            if not dragStartCF and debounce == currentDebounce then
                 StartFreeMove()
             end
         end)
