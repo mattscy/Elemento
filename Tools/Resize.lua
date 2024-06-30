@@ -1,7 +1,7 @@
 local ToolLib = require("https://github.com/mattscy/Elemento/blob/main/Tools/Modules/ToolLib.lua")
 local PLR = game:GetService("Players")
 
-local lastSize
+local startSize, startCF
 local selectMaid = {}
 
 
@@ -19,7 +19,7 @@ script.Parent.Equipped:Connect(function()
         local currentDebounce = debounce
         
         task.defer(function()
-            if not lastSize and debounce == currentDebounce then
+            if not startSize and debounce == currentDebounce then
                 ToolLib.StartFreeMove()
             end
         end)
@@ -27,7 +27,8 @@ script.Parent.Equipped:Connect(function()
 
     table.insert(selectMaid, mouse.Button1Up:Connect(function()
         debounce += 1
-        lastSize = nil
+        startSize = nil
+        startCF = nil
 
         CreateHandles()
     end))
@@ -56,13 +57,21 @@ function CreateHandles()
 
         handles.Style = Enum.HandlesStyle.Resize
 
-        handles.MouseButton1Down:Connect(function(face)
-            lastSize = 0
+        handles.MouseButton1Down:Connect(function()
+            startSize = selectedPart.Size
+            startCF = selectedPart.CFrame
         end)
 
         handles.MouseDrag:Connect(function(face, dist)
-            selectedPart:Resize(face, dist - lastSize)
-            lastSize = dist
+            local extraSize = Vector3.fromNormalId(face)*dist
+            local absExtraSize = Vector3.new(
+                math.abs(extraSize.X),
+                math.abs(extraSize.Y),
+                math.abs(extraSize.Z)
+            )
+
+            selectedPart.Size = startSize + absExtraSize
+            selectedPart.CFrame = startCF - extraSize/2
         end)
     end
 end
