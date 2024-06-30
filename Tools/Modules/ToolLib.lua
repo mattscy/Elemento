@@ -89,12 +89,13 @@ function ToolLib.StartFreeMove()
                 selectedPart.CFrame = rot + pos
 
             end
-        else
-            ToolLib.ClearSelection()
         end
 
         table.insert(freeMoveMaid, mouse.Move:Connect(MoveStep))
         MoveStep()
+        
+    else
+        ToolLib.ClearSelection()
     end
 
     CAS:BindAction("Rotate", function(name, state)
