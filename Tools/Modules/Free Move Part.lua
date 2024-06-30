@@ -27,6 +27,7 @@ local PerpSurfaceMap = {
 
 
 function FreeMove.StartFreeMove()
+    print(workspace)
     StopFreeMove()
     DeselectPart()
 
