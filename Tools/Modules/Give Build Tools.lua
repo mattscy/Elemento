@@ -21,5 +21,6 @@ end
 GiveTool("Create")
 GiveTool("Delete")
 GiveTool("Move")
+GiveTool("Resize")
 
 return true
