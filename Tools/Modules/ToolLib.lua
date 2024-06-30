@@ -32,7 +32,8 @@ local freeMoveRot = CFrame.new()
 
 function ToolLib.StartFreeMove()
     ToolLib.StopFreeMove()
-    ToolLib.DeselectPart()    
+    ToolLib.StopSelecting()
+    ToolLib.DeselectPart()  
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
     local mouse = player:GetMouse()
@@ -134,6 +135,7 @@ local handles
 function ToolLib.SelectPart()
     ToolLib.StopFreeMove()
     ToolLib.DeselectPart()
+    ToolLib.StopSelecting()
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
 
@@ -200,7 +202,10 @@ function ToolLib.StopSelecting()
         highlight:Destroy()
         highlight = nil
     end
+end
 
+
+function ToolLib.ClearSelection()
     selectedPart = nil
 end
 

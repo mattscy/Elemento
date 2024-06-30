@@ -8,6 +8,7 @@ end)
 
 script.Parent.Unequipped:Connect(function()
     ToolLib.StopSelecting()
+    ToolLib.ClearSelection()
 end)
 
 script.Parent.Activated:Connect(function()
