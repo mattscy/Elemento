@@ -19,6 +19,11 @@ Creates a new script containing the code from the provided GitHub `file`.
 Returns the `Player` that the current execution context belongs to. Returns `nil` if the script is running in a faction context or if the player is not currently in the game.
 
 ---
+`elemento:GetPrivateFolder(): Folder`
+
+Returns a folder that only the current `runAs` context (i.e. the player or faction running the script) can parent instances to.
+
+---
 `elemento:CreateFaction(factionName: string)`
 
 Creates a faction with the given name. You can only own one faction at a time.
