@@ -63,6 +63,8 @@ function CreateHandles()
         end)
 
         handles.MouseDrag:Connect(function(face, dist)
+            dist = math.round(dist)
+
             local normal = Vector3.fromNormalId(face)
             local absNormal = Vector3.new(
                 math.abs(normal.X),
@@ -70,8 +72,11 @@ function CreateHandles()
                 math.abs(normal.Z)
             )
 
-            selectedPart.Size = startSize + absNormal*dist
-            selectedPart.CFrame = startCF + (normal*dist)/2
+            local newSize = startSize + absNormal*dist
+            if math.min(newSize.X, newSize.Y, newSize.Z) > 0 then
+                selectedPart.Size = newSize
+                selectedPart.CFrame = startCF + (normal*dist)/2
+            end
         end)
     end
 end
