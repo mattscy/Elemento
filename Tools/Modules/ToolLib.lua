@@ -183,12 +183,13 @@ function ToolLib.StartSelecting()
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
     local mouse = player:GetMouse()
 
+    highlight.Parent = player:GetLocalFolder()
+
     table.insert(hoverMaid, mouse.Move:Connect(function()
         selectedPart = mouse.Target
         if selectedPart and not selectedPart:CanAccess() then
             selectedPart = nil
         end
-        highlight.Parent = player:GetLocalFolder()
         highlight.Adornee = selectedPart
     end))
 
