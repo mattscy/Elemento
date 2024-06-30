@@ -1,5 +1,7 @@
 local FreeMove = {}
 
+local PLR = game:GetService("Players")
+
 local CAS
 local selectedPart
 local Epsilon = 0.1
