@@ -32,6 +32,7 @@ local freeMoveRot = CFrame.new()
 
 function ToolLib.StartFreeMove()
     ToolLib.StopFreeMove()
+    ToolLib.StopSelecting()
     ToolLib.DeselectPart()    
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
@@ -132,7 +133,6 @@ end
 local handles
 
 function ToolLib.SelectPart()
-    ToolLib.StopFreeMove()
     ToolLib.StopSelecting()
     ToolLib.DeselectPart()
 
