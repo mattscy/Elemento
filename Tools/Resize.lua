@@ -54,7 +54,7 @@ function CreateHandles()
     if handles then
         local selectedPart = ToolLib.GetSelectedPart()
 
-        handles.Style = Enum.HandlesStyle.Movement
+        handles.Style = Enum.HandlesStyle.Resize
 
         handles.MouseButton1Down:Connect(function()
             resizing = true
