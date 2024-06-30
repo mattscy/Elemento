@@ -133,14 +133,11 @@ end
 local handles
 
 function ToolLib.SelectPart()
+    ToolLib.StopFreeMove()
     ToolLib.StopSelecting()
     ToolLib.DeselectPart()
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
-    selectedPart = player:GetMouse().Target
-    if selectedPart and not selectedPart:CanAccess() then
-        selectedPart = nil
-    end
 
     if selectedPart then
         handles = Instance.new("Handles")
@@ -158,7 +155,6 @@ function ToolLib.DeselectPart()
         handles:Destroy()
         handles = nil
     end
-    selectedPart = nil
 end
 
 
@@ -206,6 +202,8 @@ function ToolLib.StopSelecting()
         highlight:Destroy()
         highlight = nil
     end
+
+    selectedPart = nil
 end
 
 

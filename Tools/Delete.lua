@@ -13,7 +13,7 @@ end)
 script.Parent.Activated:Connect(function()
     local selectedPart = ToolLib.GetSelectedPart()
     if selectedPart then
-        ToolLib.DeselectPart()
+        ToolLib.StopSelecting()
         selectedPart:Destroy()
 
         ToolLib.StartSelecting(Color3.new(1, 0, 0))

@@ -29,7 +29,6 @@ script.Parent.Equipped:Connect(function()
         dragStartCF = nil
         debounce += 1
 
-        ToolLib.StopFreeMove()
         CreateHandles()
     end))
     
@@ -48,7 +47,7 @@ end)
 
 
 function CreateHandles()
-    local handles = ToolLib.SelectPart(Enum.HandlesStyle.Movement)
+    local handles = ToolLib.SelectPart()
 
     if handles then
         handles.Style = Enum.HandlesStyle.Movement
