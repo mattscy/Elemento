@@ -42,6 +42,7 @@ script.Parent.Unequipped:Connect(function()
     selectMaid = {}
 
     ToolLib.StopFreeMove()
+    ToolLib.DeselectPart()
     ToolLib.StopSelecting()
     ToolLib.ClearSelection()
 end)
