@@ -39,6 +39,13 @@ Removes `player` from the given faction. This can only be called by the faction 
 Changes the owner of the given faction to `newOwner`. This can only be called by the faction owner.
 
 ---
+## Script
+
+`Script:UpdateSource()`
+
+When creating a script from `elemento:CreateScript`, the source code will be cached. This function should be used to re-sync the script to use the latest version of the code from GitHub.
+
+---
 ## Player
 
 `Player:GetService(service: string): Service`
