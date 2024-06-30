@@ -131,7 +131,8 @@ end
 
 local handles
 
-function ToolLib.SelectPart(handlesStyle)
+function ToolLib.SelectPart()
+    ToolLib.StopFreeMove()
     ToolLib.StopSelecting()
     ToolLib.DeselectPart()
 
@@ -172,7 +173,7 @@ local highlight
 local hoverMaid = {}
 
 
-function ToolLib.StartSelecting(colour)
+function ToolLib.StartSelecting()
     ToolLib.StopSelecting()
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
@@ -180,7 +181,6 @@ function ToolLib.StartSelecting(colour)
 
     highlight = Instance.new("Highlight")
     highlight.FillTransparency = 0.5
-    highlight.FillColor = colour
     highlight.Archivable = false
     highlight.Parent = player:GetLocalFolder()
 
