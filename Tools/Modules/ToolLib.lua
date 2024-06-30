@@ -137,6 +137,9 @@ function ToolLib.SelectPart(handlesStyle)
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
     selectedPart = player:GetMouse().Target
+    if selectedPart and not selectedPart:CanAccess() then
+        selectedPart = nil
+    end
 
     if selectedPart then
         handles = Instance.new("Handles")

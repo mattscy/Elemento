@@ -29,7 +29,7 @@ script.Parent.Equipped:Connect(function()
         debounce += 1
 
         ToolLib.StopFreeMove()
-        ToolLib.StartSelecting()
+        ToolLib.StartSelecting(Color3.new(0, 1, 1))
     end))
     
 end)
