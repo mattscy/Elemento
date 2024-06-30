@@ -197,15 +197,15 @@ function ToolLib.StopSelecting()
         conn:Disconnect()
     end
     hoverMaid = {}
-
-    if highlight then
-        highlight:Destroy()
-        highlight = nil
-    end
 end
 
 
 function ToolLib.ClearSelection()
+    if highlight then
+        highlight:Destroy()
+        highlight = nil
+    end
+
     selectedPart = nil
 end
 
