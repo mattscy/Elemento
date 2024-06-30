@@ -29,7 +29,7 @@ script.Parent.Equipped:Connect(function()
         debounce += 1
 
         ToolLib.StopFreeMove()
-        ToolLib.StartSelecting(Color3.new(0, 1, 1))
+        CreateHandles()
     end))
     
 end)
@@ -46,7 +46,7 @@ script.Parent.Unequipped:Connect(function()
 end)
 
 
-script.Parent.Activated:Connect(function()
+function CreateHandles()
     local handles = ToolLib.SelectPart(Enum.HandlesStyle.Movement)
 
     if handles then
@@ -60,4 +60,4 @@ script.Parent.Activated:Connect(function()
             selectedPart.CFrame = dragStartCF * CFrame.new(Vector3.fromNormalId(face)*math.round(dist))
         end)
     end
-end)
+end
