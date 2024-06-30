@@ -39,10 +39,10 @@ function ToolLib.StartFreeMove()
     local mouse = player:GetMouse()
     CAS = player:GetService("ContextActionService")
 
-    -- selectedPart = mouse.Target
-    -- if selectedPart and not selectedPart:CanAccess() then
-    --     selectedPart = nil
-    -- end
+    selectedPart = mouse.Target
+    if selectedPart and not selectedPart:CanAccess() then
+        selectedPart = nil
+    end
     if selectedPart then
         selectedPart.CanQuery = false
         selectedPart.CanCollide = false
