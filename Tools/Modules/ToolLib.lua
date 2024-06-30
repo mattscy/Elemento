@@ -5,7 +5,7 @@ local CAS
 local selectedPart
 
 
-SurfaceAxisMap = {
+ToolLib.SurfaceAxisMap = {
     [Enum.NormalId.Front] = "Z";
     [Enum.NormalId.Back] = "Z";
     [Enum.NormalId.Right] = "X";
@@ -64,7 +64,7 @@ function ToolLib.StartFreeMove()
                 local normal = target.CFrame.Rotation * Vector3.fromNormalId(mouseSurface)
                 local perpNormal = target.CFrame.Rotation * Vector3.fromNormalId(PerpSurfaceMap[mouseSurface])
                 
-                local axis = SurfaceAxisMap[mouseSurface]
+                local axis = ToolLib.SurfaceAxisMap[mouseSurface]
                 local targetSurfaceMidPos = target.Position + normal*(target.Size[axis]/2)
                 local targetSurfaceMidCF = CFrame.lookAlong(targetSurfaceMidPos, normal, perpNormal)
 
