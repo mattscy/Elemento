@@ -50,6 +50,8 @@ function CreateHandles()
     local handles = ToolLib.SelectPart()
 
     if handles then
+        local selectedPart = ToolLib.GetSelectedPart()
+
         handles.Style = Enum.HandlesStyle.Movement
 
         handles.MouseButton1Down:Connect(function()
