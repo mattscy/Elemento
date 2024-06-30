@@ -2,7 +2,8 @@ local ToolLib = require("https://github.com/mattscy/Elemento/blob/main/Tools/Mod
 
 
 script.Parent.Equipped:Connect(function()
-    ToolLib.StartSelecting(Color3.new(1, 0, 0))
+    local highlight = ToolLib.StartSelecting()
+    highlight.FillColor = Color3.new(1, 0, 0)
 end)
 
 script.Parent.Unequipped:Connect(function()

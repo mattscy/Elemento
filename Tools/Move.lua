@@ -8,7 +8,7 @@ local selectMaid = {}
 script.Parent.Equipped:Connect(function()
 
     local highlight = ToolLib.StartSelecting()
-    highlight.Color = Color3.new(0, 1, 1)
+    highlight.FillColor = Color3.new(0, 1, 1)
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
     local mouse = player:GetMouse()
