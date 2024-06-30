@@ -75,7 +75,7 @@ function CreateHandles()
             local newSize = startSize + absNormal*dist
             if math.min(newSize.X, newSize.Y, newSize.Z) > 0 then
                 selectedPart.Size = newSize
-                selectedPart.CFrame = startCF*(normal*dist/2)
+                selectedPart.CFrame = startCF*CFrame.new(normal*dist/2)
             end
         end)
     end
