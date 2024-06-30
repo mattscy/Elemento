@@ -93,7 +93,7 @@ function ToolLib.StartFreeMove()
 
         table.insert(freeMoveMaid, mouse.Move:Connect(MoveStep))
         MoveStep()
-        
+
     else
         ToolLib.ClearSelection()
     end
@@ -170,7 +170,11 @@ end
 
 -- HOVER HIGHLIGHT
 
-local highlight
+local highlight = Instance.new("Highlight")
+highlight.FillTransparency = 0.5
+highlight.Archivable = false
+highlight.Adornee = selectedPart
+
 local hoverMaid = {}
 
 
@@ -181,8 +185,6 @@ function ToolLib.StartSelecting()
     local mouse = player:GetMouse()
 
     highlight = Instance.new("Highlight")
-    highlight.FillTransparency = 0.5
-    highlight.Archivable = false
     highlight.Parent = player:GetLocalFolder()
 
     table.insert(hoverMaid, mouse.Move:Connect(function()
@@ -207,26 +209,13 @@ end
 
 function ToolLib.HighlightSelected()
     if selectedPart then
-        if not highlight then
-            local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
-            highlight = Instance.new("Highlight")
-            highlight.FillTransparency = 0.5
-            highlight.Archivable = false
-            highlight.Adornee = selectedPart
-            highlight.Parent = player:GetLocalFolder()
-        end
-
         highlight.Adornee = selectedPart
     end
 end
 
 
 function ToolLib.ClearSelection()
-    if highlight then
-        highlight:Destroy()
-        highlight = nil
-    end
-
+    highlight.Adornee = nil
     selectedPart = nil
 end
 
