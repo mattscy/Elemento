@@ -89,6 +89,8 @@ function ToolLib.StartFreeMove()
                 selectedPart.CFrame = rot + pos
 
             end
+        else
+            ToolLib.ClearSelection()
         end
 
         table.insert(freeMoveMaid, mouse.Move:Connect(MoveStep))
