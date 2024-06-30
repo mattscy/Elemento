@@ -44,6 +44,8 @@ function ToolLib.StartFreeMove()
         selectedPart = nil
     end
     if selectedPart then
+        ToolLib.HighlightSelected()
+
         selectedPart.CanQuery = false
         selectedPart.CanCollide = false
         selectedPart.Archivable = false
@@ -197,6 +199,19 @@ function ToolLib.StopSelecting()
         conn:Disconnect()
     end
     hoverMaid = {}
+end
+
+
+function ToolLib.HighlightSelected()
+    if selectedPart then
+        ToolLib.ClearSelection()
+
+        highlight = Instance.new("Highlight")
+        highlight.FillTransparency = 0.5
+        highlight.Archivable = false
+        highlight.Adornee = selectedPart
+        highlight.Parent = player:GetLocalFolder()
+    end
 end
 
 
