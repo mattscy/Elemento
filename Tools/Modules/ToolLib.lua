@@ -204,14 +204,16 @@ end
 
 function ToolLib.HighlightSelected()
     if selectedPart then
-        ToolLib.ClearSelection()
+        if not highlight then
+            local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
+            highlight = Instance.new("Highlight")
+            highlight.FillTransparency = 0.5
+            highlight.Archivable = false
+            highlight.Adornee = selectedPart
+            highlight.Parent = player:GetLocalFolder()
+        end
 
-        local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
-        highlight = Instance.new("Highlight")
-        highlight.FillTransparency = 0.5
-        highlight.Archivable = false
         highlight.Adornee = selectedPart
-        highlight.Parent = player:GetLocalFolder()
     end
 end
 
