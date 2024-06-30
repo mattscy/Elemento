@@ -52,7 +52,7 @@ function ToolLib.StartFreeMove()
         local function MoveStep()
             local target = mouse.Target
 
-            if target then
+            if target and target ~= selectedPart then
 
                 local mousePos = mouse.Hit.Position
                 local mouseSurface = mouse.TargetSurface

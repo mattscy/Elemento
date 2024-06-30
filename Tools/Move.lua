@@ -17,7 +17,7 @@ script.Parent.Equipped:Connect(function()
     table.insert(selectMaid, mouse.Button1Down:Connect(function()
         debounce += 1
         local currentDebounce = debounce
-
+        
         task.defer(function()
             if not dragStartCF and debounce == currentDebounce then
                 ToolLib.StartFreeMove()
