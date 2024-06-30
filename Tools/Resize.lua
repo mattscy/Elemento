@@ -71,7 +71,7 @@ function CreateHandles()
             )
 
             selectedPart.Size = startSize + absNormal*dist
-            selectedPart.CFrame = startCF - (normal*dist)/2
+            selectedPart.CFrame = startCF + (normal*dist)/2
         end)
     end
 end
