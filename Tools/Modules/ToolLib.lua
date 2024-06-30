@@ -5,7 +5,7 @@ local CAS
 local selectedPart
 
 
-local SurfaceAxisMap = {
+SurfaceAxisMap = {
     [Enum.NormalId.Front] = "Z";
     [Enum.NormalId.Back] = "Z";
     [Enum.NormalId.Right] = "X";

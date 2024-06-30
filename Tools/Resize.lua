@@ -1,7 +1,7 @@
 local ToolLib = require("https://github.com/mattscy/Elemento/blob/main/Tools/Modules/ToolLib.lua")
 local PLR = game:GetService("Players")
 
-local resizing = false
+local resizeVal = nil
 local selectMaid = {}
 
 
@@ -19,7 +19,7 @@ script.Parent.Equipped:Connect(function()
         local currentDebounce = debounce
         
         task.defer(function()
-            if not resizing and debounce == currentDebounce then
+            if not resizeVal and debounce == currentDebounce then
                 ToolLib.StartFreeMove()
             end
         end)
@@ -27,7 +27,7 @@ script.Parent.Equipped:Connect(function()
 
     table.insert(selectMaid, mouse.Button1Up:Connect(function()
         debounce += 1
-        resizing = false
+        resizeVal = nil
 
         CreateHandles()
     end))
@@ -57,11 +57,12 @@ function CreateHandles()
         handles.Style = Enum.HandlesStyle.Resize
 
         handles.MouseButton1Down:Connect(function()
-            resizing = true
+            resizeVal = 0
         end)
 
         handles.MouseDrag:Connect(function(face, dist)
-            selectedPart:Resize(face, dist)
+            resizeVal += dist
+            selectedPart:Resize(face, resizeVal)
         end)
     end
 end
