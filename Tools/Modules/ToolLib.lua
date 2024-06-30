@@ -1,12 +1,8 @@
-local FreeMove = {}
+local ToolLib = {}
 
 local PLR = game:GetService("Players")
-
 local CAS
 local selectedPart
-local Epsilon = 0.1
-local freeMoveMaid = {}
-local freeMoveRot = CFrame.new()
 
 
 local SurfaceAxisMap = {
@@ -28,8 +24,15 @@ local PerpSurfaceMap = {
 }
 
 
-function FreeMove.StartFreeMove()
-    FreeMove.StopFreeMove()
+-- FREE MOVEMENT
+
+local Epsilon = 0.1
+local freeMoveMaid = {}
+local freeMoveRot = CFrame.new()
+
+function ToolLib.StartFreeMove()
+    ToolLib.StopFreeMove()
+    ToolLib.DeselectPart()    
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
     local mouse = player:GetMouse()
@@ -103,7 +106,7 @@ function FreeMove.StartFreeMove()
 end
 
 
-function FreeMove.StopFreeMove()
+function ToolLib.StopFreeMove()
     for _, conn in pairs(freeMoveMaid) do
         conn:Disconnect()
     end
@@ -124,4 +127,82 @@ function FreeMove.StopFreeMove()
 end
 
 
-return FreeMove
+-- SELECTION
+
+function ToolLib.SelectPart()
+    ToolLib.StopSelecting()
+    ToolLib.DeselectPart()
+
+    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
+    selectedPart = player:GetMouse().Target
+
+    if selectedPart then
+        handles = Instance.new("Handles")
+        handles.Archivable = false
+        handles.Adornee = selectedPart
+        handles.Parent = player.PlayerGui
+
+        return handles
+    end
+end
+
+
+function ToolLib.DeselectPart()
+    if handles then
+        handles:Destroy()
+        handles = nil
+    end
+    selectedPart = nil
+end
+
+
+function ToolLib.GetSelectedPart()
+    return selectedPart
+end
+
+
+-- HOVER HIGHLIGHT
+
+local highlight
+local hoverMaid = {}
+
+
+function ToolLib.StartSelecting(colour)
+    ToolLib.StopSelecting()
+
+    local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
+    local mouse = player:GetMouse()
+
+    highlight = Instance.new("Highlight")
+    highlight.FillTransparency = 0.5
+    highlight.FillColor = colour
+    highlight.Archivable = false
+    highlight.Parent = player:GetLocalFolder()
+
+    table.insert(hoverMaid, mouse.Move:Connect(function()
+        selectedPart = mouse.Target
+        if selectedPart and not selectedPart:CanAccess() then
+            selectedPart = nil
+        end
+        highlight.Adornee = selectedPart
+    end))
+
+    return highlight
+end
+
+
+function ToolLib.StopSelecting()
+    for _, conn in pairs(hoverMaid) do
+        conn:Disconnect()
+    end
+    hoverMaid = {}
+
+    if highlight then
+        highlight:Destroy()
+        highlight = nil
+    end
+end
+
+
+
+return ToolLib

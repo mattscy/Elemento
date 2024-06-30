@@ -18,8 +18,8 @@ local function GiveTool(name)
     tool.Parent = player.Backpack
 end
 
-GiveTool("Create Part")
-GiveTool("Delete Part")
-GiveTool("Move Part")
+GiveTool("Create")
+GiveTool("Delete")
+GiveTool("Move")
 
 return true
