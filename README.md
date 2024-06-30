@@ -14,6 +14,11 @@ Creates a new script containing the code from the provided GitHub `file`.
   - If `runAs` is left empty, the script can modify anything that you have access to, including anything belonging to the factions that you are a member of.
 
 ---
+`elemento:UpdateScript(script: Script)`
+
+When creating a script from `elemento:CreateScript`, the source code will be cached. This function should be used to re-sync the script to use the latest version of the code from GitHub.
+
+---
 `elemento:GetMyPlayer(): Player?`
 
 Returns the `Player` that the current execution context belongs to. Returns `nil` if the script is running in a faction context or if the player is not currently in the game.
