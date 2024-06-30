@@ -50,6 +50,8 @@ script.Parent.Activated:Connect(function()
     local handles = ToolLib.SelectPart(Enum.HandlesStyle.Movement)
 
     if handles then
+        handles.Style = Enum.HandlesStyle.Movement
+
         handles.MouseButton1Down:Connect(function()
             dragStartCF = selectedPart:GetPivot()
         end)

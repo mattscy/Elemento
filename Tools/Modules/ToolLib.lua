@@ -140,7 +140,6 @@ function ToolLib.SelectPart(handlesStyle)
 
     if selectedPart then
         handles = Instance.new("Handles")
-        handles.Style = handlesStyle
         handles.Archivable = false
         handles.Adornee = selectedPart
         handles.Parent = player.PlayerGui
