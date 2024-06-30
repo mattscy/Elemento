@@ -43,6 +43,7 @@ script.Parent.Unequipped:Connect(function()
 
     ToolLib.StopFreeMove()
     ToolLib.StopSelecting()
+    ToolLib.ClearSelection()
 end)
 
 
