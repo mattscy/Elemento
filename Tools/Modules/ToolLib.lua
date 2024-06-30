@@ -173,7 +173,6 @@ end
 local highlight = Instance.new("Highlight")
 highlight.FillTransparency = 0.5
 highlight.Archivable = false
-highlight.Adornee = selectedPart
 
 local hoverMaid = {}
 
@@ -189,6 +188,7 @@ function ToolLib.StartSelecting()
         if selectedPart and not selectedPart:CanAccess() then
             selectedPart = nil
         end
+        highlight.Parent = player.PlayerGui
         highlight.Adornee = selectedPart
     end))
 
