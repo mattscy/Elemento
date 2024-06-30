@@ -27,9 +27,7 @@ local PerpSurfaceMap = {
 
 
 function FreeMove.StartFreeMove()
-    print(workspace)
-    StopFreeMove()
-    DeselectPart()
+    FreeMove.StopFreeMove()
 
     local player = PLR:GetPlayerFromCharacter(script.Parent.Parent)
     local mouse = player:GetMouse()

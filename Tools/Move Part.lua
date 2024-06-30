@@ -19,6 +19,7 @@ function OnEquip()
 
         task.defer(function()
             if not dragStartCF and debounce == currentDebounce then
+                DeselectPart()
                 FreeMove.StartFreeMove()
             end
         end)
