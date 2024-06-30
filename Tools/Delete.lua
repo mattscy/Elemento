@@ -1,3 +1,6 @@
+local ToolLib = require("https://github.com/mattscy/Elemento/blob/main/Tools/Modules/ToolLib.lua")
+
+
 script.Parent.Equipped:Connect(function()
     ToolLib.StartSelecting(Color3.new(1, 0, 0))
 end)

@@ -129,7 +129,7 @@ end
 
 -- SELECTION
 
-function ToolLib.SelectPart()
+function ToolLib.SelectPart(handlesStyle)
     ToolLib.StopSelecting()
     ToolLib.DeselectPart()
 
@@ -138,6 +138,7 @@ function ToolLib.SelectPart()
 
     if selectedPart then
         handles = Instance.new("Handles")
+        handles.HandlesStyle = handlesStyle
         handles.Archivable = false
         handles.Adornee = selectedPart
         handles.Parent = player.PlayerGui
