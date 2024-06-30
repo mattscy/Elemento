@@ -188,7 +188,7 @@ function ToolLib.StartSelecting()
         if selectedPart and not selectedPart:CanAccess() then
             selectedPart = nil
         end
-        highlight.Parent = player.PlayerGui
+        highlight.Parent = player:GetLocalFolder()
         highlight.Adornee = selectedPart
     end))
 
