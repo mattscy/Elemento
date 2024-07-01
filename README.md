@@ -104,7 +104,7 @@ This event behaves the same as the regular `BindableEvent.Event`, but it also in
 
 `BindableFunction.OnInvokeWithContext(runAs: string, elevatedPrivileges: bool, ...): ...`
 
-This callback behaves the same as the regular `BindableFunction.OnInvoke`, but it also includes information about the context of the script that fired the event:
+This callback behaves the same as the regular `BindableFunction.OnInvoke`, but it also includes information about the context of the script that invoked the function:
 - The `runAs` will either be the UserId or faction name of the player/faction that "owns" the invoking script.
 - The `elevatedPrivileges` will be true if the invoking script is running with elevated privileges.
 
