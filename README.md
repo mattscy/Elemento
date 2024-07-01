@@ -91,6 +91,24 @@ Returns the owner of the instance.
 Set Archivable to false for instances that should not be saved between game sessions.
 
 ---
+## BindableEvent
+
+`BindableEvent.EventWithContext(runAs: string, elevatedPrivileges: bool, ...)`
+
+This event behaves the same as the regular `BindableEvent.Event`, but it also includes information about the context of the script that fired the event:
+- The `runAs` will either be the UserId or faction name of the player/faction that "owns" the firing script.
+- The `elevatedPrivileges` will be true if the firing script is running with elevated privileges.
+
+---
+## BindableFunction
+
+`BindableFunction.OnInvokeWithContext(runAs: string, elevatedPrivileges: bool, ...)`
+
+This callback behaves the same as the regular `BindableFunction.OnInvoke`, but it also includes information about the context of the script that fired the event:
+- The `runAs` will either be the UserId or faction name of the player/faction that "owns" the invoking script.
+- The `elevatedPrivileges` will be true if the invoking script is running with elevated privileges.
+
+---
 ## Other
 
 `require(file: string): any`
