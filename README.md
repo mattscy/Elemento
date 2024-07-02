@@ -14,6 +14,11 @@ Creates a new script containing the code from the provided GitHub `file`.
   - If `runAs` is left empty, the script can modify anything that you have access to, including anything belonging to the factions that you are a member of.
 
 ---
+`elemento:CreatePrivateScript(secret: Secret, file: string, elevatedPrivilege: bool?, runAs: string?): Script`
+
+Creates a new script containing the code from a `file` in a private GitHub repository. Accepts a `secret` that contains the access token for the repository.
+
+---
 `elemento:GetMyPlayer(): Player?`
 
 Returns the `Player` that the current execution context belongs to. Returns `nil` if the script is running in a faction context or if the player is not currently in the game.
@@ -107,6 +112,21 @@ This event behaves the same as the regular `BindableEvent.Event`, but it also in
 This callback behaves the same as the regular `BindableFunction.OnInvoke`, but it also includes information about the context of the script that invoked the function:
 - The `runAs` will either be the UserId or faction name of the player/faction that "owns" the invoking script.
 - The `elevatedPrivileges` will be true if the invoking script is running with elevated privileges.
+
+---
+## Secret
+
+`Secret.new(token: string, uses: number?): Secret`
+
+Returns a Secret that encapsulates a GitHub access token. This is for use with `elemento:CreatePrivateScript`.
+
+Follow these steps to create an access token for a private repository:
+1. Navigate to [https://github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new) and sign in.
+2. Set the "Token name" and "Expiration" of the token.
+3. Under "Repository access" select "Only select repositories".
+4. Expand "Select repositories" and select your private repository.
+5. Expand "Repository permissions" and set the "Contents" permission to "Access: Read-only".
+6. Select "Generate token" and copy the token string.
 
 ---
 ## Other
