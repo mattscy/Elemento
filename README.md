@@ -129,6 +129,11 @@ Follow these steps to create an access token for a private repository:
 6. Select "Generate token" and copy the token string.
 
 ---
+`Secret:GetUses(): number`
+
+Returns the number of uses remaining for the secret. If there are zero uses remaining then the secret can no longer be used to authorise requests.
+
+---
 ## Other
 
 `require(file: string): any`
