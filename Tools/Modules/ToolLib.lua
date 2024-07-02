@@ -26,8 +26,8 @@ local PerpSurfaceMap = {
 local PerpSurface2Map = {
     [Enum.NormalId.Front] = Enum.NormalId.Right;
     [Enum.NormalId.Back] = Enum.NormalId.Left;
-    [Enum.NormalId.Right] = Enum.NormalId.Front;
-    [Enum.NormalId.Left] = Enum.NormalId.Back;
+    [Enum.NormalId.Right] = Enum.NormalId.Back;
+    [Enum.NormalId.Left] = Enum.NormalId.Front;
     [Enum.NormalId.Top] = Enum.NormalId.Right;
     [Enum.NormalId.Bottom] = Enum.NormalId.Left;
 }
