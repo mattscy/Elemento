@@ -1,6 +1,6 @@
 local API = {}
 
-local Bank = elemento:GetPrivateFolder().Parent["16542699"]
+local Bank = elemento:GetPersonalFolder().Parent["16542699"]
 
 
 function API.SubmitPayment(recipient, amount)
