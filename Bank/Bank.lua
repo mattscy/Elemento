@@ -73,7 +73,7 @@ GetBindable("SubmitPayment", "BindableFunction").OnInvokeWithContext = function(
     if not toAccount then
         error("No account for " .. recipient)
     end
-    if type(amount) ~= number or amount < 0 then
+    if type(amount) ~= "number" or amount < 0 then
         error("Invalid amount")
     end
     amount = math.floor(amount)
