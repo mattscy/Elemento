@@ -16,7 +16,7 @@ Creates a new script containing the code from the provided GitHub `file`.
 ---
 `elemento:CreatePrivateScript(secret: Secret, file: string, elevatedPrivilege: bool?, runAs: string?): Script`
 
-Creates a new script containing the code from a `file` in a private GitHub repository. Accepts a `secret` that contains the access token for the repository.
+Creates a new script containing the code from a `file` in a private GitHub repository. Accepts a `secret` that contains the access token for the repository. See [Secret](https://github.com/mattscy/Elemento/blob/main/README.md#secret) for details on generating the secret.
 
 ---
 `elemento:GetMyPlayer(): Player?`
