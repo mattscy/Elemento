@@ -93,6 +93,3 @@ GetBindable("GetBalance", "BindableFunction").OnInvokeWithContext = function(run
 
     return account.Value
 end
-
-
-return true
