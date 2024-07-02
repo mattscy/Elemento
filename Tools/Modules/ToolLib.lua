@@ -26,8 +26,8 @@ local PerpSurfaceMap = {
 local PerpSurface2Map = {
     [Enum.NormalId.Front] = Enum.NormalId.Right;
     [Enum.NormalId.Back] = Enum.NormalId.Left;
-    [Enum.NormalId.Right] = Enum.NormalId.Back;
-    [Enum.NormalId.Left] = Enum.NormalId.Front;
+    [Enum.NormalId.Right] = Enum.NormalId.Front;
+    [Enum.NormalId.Left] = Enum.NormalId.Back;
     [Enum.NormalId.Top] = Enum.NormalId.Right;
     [Enum.NormalId.Bottom] = Enum.NormalId.Left;
 }
@@ -86,8 +86,8 @@ function ToolLib.StartFreeMove()
                     partLongWidth = selectedPart.Size.X
                 elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
-                    partLatWidth = selectedPart.Size.Y
-                    partLongWidth = selectedPart.Size.Z
+                    partLatWidth = selectedPart.Size.Z
+                    partLongWidth = selectedPart.Size.Y
                 else
                     offsetDist = selectedPart.Size.Y/2
                     partLatWidth = selectedPart.Size.Z
