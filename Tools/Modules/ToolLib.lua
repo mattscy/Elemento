@@ -86,12 +86,12 @@ function ToolLib.StartFreeMove()
                     partLongWidth = selectedPart.Size.Y
                 elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
-                    partLatWidth = selectedPart.Size.Z
-                    partLongWidth = selectedPart.Size.Y
+                    partLatWidth = selectedPart.Size.Y
+                    partLongWidth = selectedPart.Size.Z
                 else
                     offsetDist = selectedPart.Size.Y/2
-                    partLatWidth = selectedPart.Size.Z
-                    partLongWidth = selectedPart.Size.X
+                    partLatWidth = selectedPart.Size.X
+                    partLongWidth = selectedPart.Size.Z
                 end
                 
                 local midOffset = mousePos - targetSurfaceCornerPos
