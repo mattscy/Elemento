@@ -23,12 +23,23 @@ local PerpSurfaceMap = {
     [Enum.NormalId.Bottom] = Enum.NormalId.Front;
 }
 
+local PerpSurface2Map = {
+    [Enum.NormalId.Front] = Enum.NormalId.Right;
+    [Enum.NormalId.Back] = Enum.NormalId.Left;
+    [Enum.NormalId.Right] = Enum.NormalId.Front;
+    [Enum.NormalId.Left] = Enum.NormalId.Back;
+    [Enum.NormalId.Top] = Enum.NormalId.Right;
+    [Enum.NormalId.Bottom] = Enum.NormalId.Left;
+}
+
 
 -- FREE MOVEMENT
 
 local Epsilon = 0.1
 local freeMoveMaid = {}
 local freeMoveRot = CFrame.new()
+local unit = 1
+
 
 function ToolLib.StartFreeMove()
     ToolLib.StopFreeMove()
@@ -68,18 +79,38 @@ function ToolLib.StartFreeMove()
                 local targetSurfaceCornerPos = target.Position + normal*target.Size/2 -- (target.Size[axis]/2)
                 local targetSurfaceCornerCF = CFrame.lookAlong(targetSurfaceCornerPos, normal, perpNormal)
 
-                local offsetDist
+                local offsetDist, partLatWidth, partLongWidth
                 if rot.LookVector:FuzzyEq(normal, Epsilon) or rot.LookVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.Z/2
+                    partLatWidth = selectedPart.Size.X
+                    partLongWidth = selectedPart.Size.Y
                 elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
+                    partLatWidth = selectedPart.Size.Z
+                    partLongWidth = selectedPart.Size.Y
                 else
                     offsetDist = selectedPart.Size.Y/2
+                    partLatWidth = selectedPart.Size.X
+                    partLongWidth = selectedPart.Size.Z
+                end
+                
+                local midOffset = mousePos - targetSurfaceCornerPos
+                local longDist = midOffset:Dot(targetSurfaceCornerCF.RightVector)
+                local latDist = midOffset:Dot(targetSurfaceCornerCF.UpVector)
+                
+                local latWidth = target.Size[ToolLib.SurfaceAxisMap[PerpSurfaceMap[mouseSurface]]]
+                if (latWidth/unit)%2 == (partLatWidth/unit)%2 then
+                    latDist = math.floor(latDist/unit + 0.5)*unit
+                else
+                    latDist = (math.floor(latDist/unit) + 0.5)*unit
                 end
 
-                local midOffset = mousePos - targetSurfaceCornerPos
-                local longDist = math.round(midOffset:Dot(targetSurfaceCornerCF.RightVector))
-                local latDist = math.round(midOffset:Dot(targetSurfaceCornerCF.UpVector))
+                local longWidth = target.Size[ToolLib.SurfaceAxisMap[PerpSurface2Map[mouseSurface]]]
+                if (longWidth/unit)%2 == (partLongWidth/unit)%2 then
+                    longDist = math.floor(longDist/unit + 0.5)*unit
+                else
+                    longDist = (math.floor(longDist/unit) + 0.5)*unit
+                end
 
                 local pos = targetSurfaceCornerPos
                     + targetSurfaceCornerCF.RightVector*longDist
