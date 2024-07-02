@@ -64,9 +64,9 @@ function ToolLib.StartFreeMove()
                 local normal = target.CFrame.Rotation * Vector3.fromNormalId(mouseSurface)
                 local perpNormal = target.CFrame.Rotation * Vector3.fromNormalId(PerpSurfaceMap[mouseSurface])
                 
-                local axis = ToolLib.SurfaceAxisMap[mouseSurface]
-                local targetSurfaceMidPos = target.Position + normal*(target.Size[axis]/2)
-                local targetSurfaceMidCF = CFrame.lookAlong(targetSurfaceMidPos, normal, perpNormal)
+                -- local axis = ToolLib.SurfaceAxisMap[mouseSurface]
+                local targetSurfaceCornerPos = target.Position + normal*target.Size/2 -- (target.Size[axis]/2)
+                local targetSurfaceCornerCF = CFrame.lookAlong(targetSurfaceCornerPos, normal, perpNormal)
 
                 local offsetDist
                 if rot.LookVector:FuzzyEq(normal, Epsilon) or rot.LookVector:FuzzyEq(-normal, Epsilon) then
@@ -77,14 +77,14 @@ function ToolLib.StartFreeMove()
                     offsetDist = selectedPart.Size.Y/2
                 end
 
-                local midOffset = mousePos - targetSurfaceMidPos
-                local longDist = math.round(midOffset:Dot(targetSurfaceMidCF.RightVector))
-                local latDist = math.round(midOffset:Dot(targetSurfaceMidCF.UpVector))
+                local midOffset = mousePos - targetSurfaceCornerPos
+                local longDist = math.round(midOffset:Dot(targetSurfaceCornerCF.RightVector))
+                local latDist = math.round(midOffset:Dot(targetSurfaceCornerCF.UpVector))
 
-                local pos = targetSurfaceMidPos
-                    + targetSurfaceMidCF.RightVector*longDist
-                    + targetSurfaceMidCF.UpVector*latDist
-                    + targetSurfaceMidCF.LookVector*offsetDist
+                local pos = targetSurfaceCornerPos
+                    + targetSurfaceCornerCF.RightVector*longDist
+                    + targetSurfaceCornerCF.UpVector*latDist
+                    + targetSurfaceCornerCF.LookVector*offsetDist
 
                 selectedPart.CFrame = rot + pos
 
