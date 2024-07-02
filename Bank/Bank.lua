@@ -73,7 +73,7 @@ GetBindable("SubmitPayment", "BindableFunction").OnInvokeWithContext = function(
     if not toAccount then
         error("No account for " .. recipient)
     end
-    if account.Value < amount then
+    if fromAccount.Value < amount then
         error("Insufficient funds")
     end
 
