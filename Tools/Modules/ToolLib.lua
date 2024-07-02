@@ -82,8 +82,8 @@ function ToolLib.StartFreeMove()
                 local offsetDist, partLatWidth, partLongWidth
                 if rot.LookVector:FuzzyEq(normal, Epsilon) or rot.LookVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.Z/2
-                    partLatWidth = selectedPart.Size.Y
-                    partLongWidth = selectedPart.Size.X
+                    partLatWidth = selectedPart.Size.X
+                    partLongWidth = selectedPart.Size.Y
                 elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
                     partLatWidth = selectedPart.Size.Z
