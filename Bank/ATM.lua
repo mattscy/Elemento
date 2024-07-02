@@ -28,13 +28,13 @@ cd.MouseClick:Connect(function(player)
 
     local account = elemento:GetPersonalFolder().Bank.Accounts:FindFirstChild(tostring(player.UserId))
     if account then
-        screen.Text = "Balance: $" .. tostring(account.Value)
+        sg.Screen.Text = "Balance: $" .. tostring(account.Value)
     else
-        screen.Text = "Account not found"
+        sg.Screen.Text = "Account not found"
     end
 
     task.wait(3)
-    screen.Text = "Click to check balance"
+    sg.Screen.Text = "Click to check balance"
 
     debounce = true
 end)
