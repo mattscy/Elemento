@@ -90,8 +90,8 @@ function ToolLib.StartFreeMove()
                     partLongWidth = selectedPart.Size.Y
                 else
                     offsetDist = selectedPart.Size.Y/2
-                    partLatWidth = selectedPart.Size.X
-                    partLongWidth = selectedPart.Size.Z
+                    partLatWidth = selectedPart.Size.Z
+                    partLongWidth = selectedPart.Size.X
                 end
                 
                 local midOffset = mousePos - targetSurfaceCornerPos
