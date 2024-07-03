@@ -92,7 +92,7 @@ function ToolLib.StartFreeMove()
                     end
                 elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
-                    if rot.UpVector:FuzzeEq(perpNormal, Epsilon) or rot.UpVector:FuzzeEq(-perpNormal, Epsilon) then
+                    if rot.UpVector:FuzzyEq(perpNormal, Epsilon) or rot.UpVector:FuzzyEq(-perpNormal, Epsilon) then
                         partLatWidth = selectedPart.Size.Z
                         partLongWidth = selectedPart.Size.Y
                     else
@@ -101,7 +101,7 @@ function ToolLib.StartFreeMove()
                     end
                 else
                     offsetDist = selectedPart.Size.Y/2
-                    if rot.LookVector:FuzzeEq(perpNormal, Epsilon) or rot.LookVector:FuzzeEq(-perpNormal, Epsilon) then
+                    if rot.LookVector:FuzzyEq(perpNormal, Epsilon) or rot.LookVector:FuzzyEq(-perpNormal, Epsilon) then
                         partLatWidth = selectedPart.Size.X
                         partLongWidth = selectedPart.Size.Z
                     else
