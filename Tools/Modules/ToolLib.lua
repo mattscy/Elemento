@@ -79,19 +79,35 @@ function ToolLib.StartFreeMove()
                 local targetSurfaceCornerPos = target.Position + normal*target.Size/2 -- (target.Size[axis]/2)
                 local targetSurfaceCornerCF = CFrame.lookAlong(targetSurfaceCornerPos, normal, perpNormal)
 
+
                 local offsetDist, partLatWidth, partLongWidth
                 if rot.LookVector:FuzzyEq(normal, Epsilon) or rot.LookVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.Z/2
-                    partLatWidth = selectedPart.Size.X
-                    partLongWidth = selectedPart.Size.Y
+                    if rot.UpVector:FuzzyEq(perpNormal, Epsilon) or rot.UpVector:FuzzyEq(-perpNormal, Epsilon) then
+                        partLatWidth = selectedPart.Size.X
+                        partLongWidth = selectedPart.Size.Y
+                    else
+                        partLatWidth = selectedPart.Size.Y
+                        partLongWidth = selectedPart.Size.X
+                    end
                 elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
-                    partLatWidth = selectedPart.Size.Z
-                    partLongWidth = selectedPart.Size.Y
+                    if rot.UpVector:FuzzeEq(perpNormal, Epsilon) or rot.UpVector:FuzzeEq(-perpNormal, Epsilon) then
+                        partLatWidth = selectedPart.Size.Z
+                        partLongWidth = selectedPart.Size.Y
+                    else
+                        partLatWidth = selectedPart.Size.Y
+                        partLongWidth = selectedPart.Size.Z
+                    end
                 else
                     offsetDist = selectedPart.Size.Y/2
-                    partLatWidth = selectedPart.Size.X
-                    partLongWidth = selectedPart.Size.Z
+                    if rot.LookVector:FuzzeEq(perpNormal, Epsilon) or rot.LookVector:FuzzeEq(-perpNormal, Epsilon) then
+                        partLatWidth = selectedPart.Size.X
+                        partLongWidth = selectedPart.Size.Z
+                    else
+                        partLatWidth = selectedPart.Size.Z
+                        partLongWidth = selectedPart.Size.X
+                    end
                 end
                 
                 local midOffset = mousePos - targetSurfaceCornerPos
