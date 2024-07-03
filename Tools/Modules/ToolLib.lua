@@ -84,29 +84,29 @@ function ToolLib.StartFreeMove()
                 if rot.LookVector:FuzzyEq(normal, Epsilon) or rot.LookVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.Z/2
                     if rot.UpVector:FuzzyEq(perpNormal, Epsilon) or rot.UpVector:FuzzyEq(-perpNormal, Epsilon) then
-                        partLatWidth = selectedPart.Size.X
-                        partLongWidth = selectedPart.Size.Y
-                    else
                         partLatWidth = selectedPart.Size.Y
                         partLongWidth = selectedPart.Size.X
+                    else
+                        partLatWidth = selectedPart.Size.X
+                        partLongWidth = selectedPart.Size.Y
                     end
                 elseif rot.RightVector:FuzzyEq(normal, Epsilon) or rot.RightVector:FuzzyEq(-normal, Epsilon) then
                     offsetDist = selectedPart.Size.X/2
                     if rot.UpVector:FuzzyEq(perpNormal, Epsilon) or rot.UpVector:FuzzyEq(-perpNormal, Epsilon) then
-                        partLatWidth = selectedPart.Size.Z
-                        partLongWidth = selectedPart.Size.Y
-                    else
                         partLatWidth = selectedPart.Size.Y
                         partLongWidth = selectedPart.Size.Z
+                    else
+                        partLatWidth = selectedPart.Size.Z
+                        partLongWidth = selectedPart.Size.Y
                     end
                 else
                     offsetDist = selectedPart.Size.Y/2
                     if rot.LookVector:FuzzyEq(perpNormal, Epsilon) or rot.LookVector:FuzzyEq(-perpNormal, Epsilon) then
-                        partLatWidth = selectedPart.Size.X
-                        partLongWidth = selectedPart.Size.Z
-                    else
                         partLatWidth = selectedPart.Size.Z
                         partLongWidth = selectedPart.Size.X
+                    else
+                        partLatWidth = selectedPart.Size.X
+                        partLongWidth = selectedPart.Size.Z
                     end
                 end
                 
