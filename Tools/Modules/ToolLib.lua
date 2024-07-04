@@ -38,7 +38,7 @@ local PerpSurface2Map = {
 local Epsilon = 0.1
 local freeMoveMaid = {}
 local freeMoveRot = CFrame.new()
-local unit = 1
+local unit = 0.5
 
 
 function ToolLib.StartFreeMove()
