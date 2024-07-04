@@ -115,14 +115,14 @@ function ToolLib.StartFreeMove()
                 local latDist = midOffset:Dot(targetSurfaceCornerCF.UpVector)
                 
                 local latWidth = target.Size[ToolLib.SurfaceAxisMap[PerpSurfaceMap[mouseSurface]]]
-                if math.round(latWidth/unit)%2 == math.round(partLatWidth/unit)%2 then
+                if math.round(latWidth/unit)%2 == 0 and math.round(partLatWidth/unit)%2 == 0 then
                     latDist = math.floor(latDist/unit + 0.5)*unit
                 else
                     latDist = (math.floor(latDist/unit) + 0.5)*unit
                 end
 
                 local longWidth = target.Size[ToolLib.SurfaceAxisMap[PerpSurface2Map[mouseSurface]]]
-                if math.round(longWidth/unit)%2 == math.round(partLongWidth/unit)%2 then
+                if math.round(longWidth/unit)%2 == 0 and math.round(partLongWidth/unit)%2 == 0 then
                     longDist = math.floor(longDist/unit + 0.5)*unit
                 else
                     longDist = (math.floor(longDist/unit) + 0.5)*unit
