@@ -41,7 +41,7 @@ local function AddInstance(inst)
     button.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
     button.TextColor3 = Color3.new(1, 1, 1)
     button.BorderColor3 = Color3.fromRGB(200, 200, 200)
-    button.Text = inst.Name
+    button.Text = inst.Name .. ` ({inst.ClassType})`
     button.TextXAlignment = Enum.TextXAlignment.Left
     button.Name = "Instance"
 
