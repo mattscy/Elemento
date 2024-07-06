@@ -15,6 +15,13 @@ explorer.AutomaticCanvasSize = Enum.AutomaticSize.Y
 local properties = explorer:Clone()
 properties.Position = UDim2.fromScale(0, 0.5)
 
+local ui = Instance.new("ScreenGui")
+
+properties.Parent = window
+explorer.Parent = window
+window.Parent = ui
+ui.Parent = elemento:GetMyPlayer().PlayerGui
+
 
 local FrameCache = {}
 
@@ -46,7 +53,12 @@ local function AddInstance(inst)
     button.Parent = frame
     list.Parent = children
     children.Parent = frame
-    frame.Parent = FrameCache[inst.Parent].Children
+
+    if inst.Parent then
+        frame.Parent = FrameCache[inst.Parent].Children
+    else
+        frame.Parent = explorer
+    end
 
     FrameCache[inst] = frame
 
