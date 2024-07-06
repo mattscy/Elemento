@@ -1,4 +1,4 @@
-local RowHeight = 12
+local RowHeight = 14
 local Root = workspace
 
 
@@ -29,7 +29,7 @@ local FrameCache = {}
 
 local function AddInstance(inst)
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(1, -12, 0, 0)
+    frame.Size = UDim2.fromScale(1, 0)
     frame.AutomaticSize = Enum.AutomaticSize.Y
     frame.BackgroundTransparency = 1
     frame.AnchorPoint = Vector2.new(1, 0)
@@ -47,7 +47,8 @@ local function AddInstance(inst)
 
     local children = Instance.new("Frame")
     children.Size = UDim2.fromScale(1, 0)
-    children.Position = UDim2.fromOffset(0, RowHeight)
+    children.Position = UDim2.fromOffset(12, RowHeight)
+    children.Size = UDim2.new(1, -12, 0, 0)
     children.AutomaticSize = Enum.AutomaticSize.Y
     children.BackgroundTransparency = 1
     children.Name = "Children"
