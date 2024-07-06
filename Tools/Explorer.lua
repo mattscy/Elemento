@@ -32,6 +32,8 @@ local function AddInstance(inst)
     frame.Size = UDim2.new(1, -12, 0, 0)
     frame.AutomaticSize = Enum.AutomaticSize.Y
     frame.BackgroundTransparency = 1
+    frame.AnchorPoint = Vector2.new(1, 0)
+    frame.Position = UDim2.new(1, -12, 0, 0)
     frame.Name = inst.Name
 
     local button = Instance.new("TextButton")
@@ -40,6 +42,7 @@ local function AddInstance(inst)
     button.TextColor3 = Color3.new(1, 1, 1)
     button.BorderColor3 = Color3.fromRGB(200, 200, 200)
     button.Text = inst.Name
+    button.TextXAlignment = Enum.TextXAlignment.Left
     button.Name = "Instance"
 
     local children = Instance.new("Frame")
