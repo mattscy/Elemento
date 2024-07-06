@@ -33,7 +33,7 @@ local function AddInstance(inst)
     frame.AutomaticSize = Enum.AutomaticSize.Y
     frame.BackgroundTransparency = 1
     frame.AnchorPoint = Vector2.new(1, 0)
-    frame.Position = UDim2.new(1, -12, 0, 0)
+    frame.Position = UDim2.new(1, 0, 0, 0)
     frame.Name = inst.Name
 
     local button = Instance.new("TextButton")
