@@ -2,7 +2,7 @@ local RowHeight = 12
 
 
 local window = Instance.new("Frame")
-window.Size = UDim2.new(0, 500, 1, 0)
+window.Size = UDim2.new(0, 300, 1, 0)
 window.AnchorPoint = Vector2.new(1, 0)
 window.Position = UDim2.fromScale(1, 0)
 
@@ -16,6 +16,7 @@ local properties = explorer:Clone()
 properties.Position = UDim2.fromScale(0, 0.5)
 
 local ui = Instance.new("ScreenGui")
+ui.Enabled = false
 
 properties.Parent = window
 explorer.Parent = window
@@ -94,3 +95,12 @@ local function AddInstance(inst)
     end)
 end
 AddInstance(game)
+
+
+script.Parent.Equipped:Connect(function()
+    ui.Enabled = true
+end)
+
+script.Parent.Unequipped:Connect(function()
+    ui.Enabled = false
+end)
