@@ -24,6 +24,11 @@ Creates a new script containing the code from a `file` in a private GitHub repos
 Returns the `Player` that the current execution context belongs to. Returns `nil` if the script is running in a faction context or if the player is not currently in the game.
 
 ---
+`elemento:GetMyInstances(): Instance[]`
+
+Returns an array of all objects that have been directly created by the faction or player that the script is executing as.
+
+---
 `elemento:GetPersonalFolder(): Folder`
 
 Returns a folder that only the current `runAs` context (i.e. the player or faction running the script) can parent instances to.
