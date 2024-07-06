@@ -22,5 +22,6 @@ GiveTool("Create")
 GiveTool("Delete")
 GiveTool("Move")
 GiveTool("Resize")
+GiveTool("Explorer")
 
 return true
