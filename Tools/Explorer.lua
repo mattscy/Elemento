@@ -1,4 +1,5 @@
 local RowHeight = 12
+local Root = workspace
 
 
 local window = Instance.new("Frame")
@@ -55,7 +56,7 @@ local function AddInstance(inst)
     list.Parent = children
     children.Parent = frame
 
-    if inst ~= game then
+    if inst ~= Root then
         frame.Parent = FrameCache[inst.Parent].Children
     else
         frame.Parent = explorer
@@ -94,7 +95,7 @@ local function AddInstance(inst)
         end
     end)
 end
-AddInstance(game)
+AddInstance(Root)
 
 
 script.Parent.Equipped:Connect(function()
