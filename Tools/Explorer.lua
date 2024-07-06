@@ -55,7 +55,7 @@ local function AddInstance(inst)
     list.Parent = children
     children.Parent = frame
 
-    if inst.Parent then
+    if inst ~= game then
         frame.Parent = FrameCache[inst.Parent].Children
     else
         frame.Parent = explorer
@@ -88,7 +88,7 @@ local function AddInstance(inst)
     end)
 
     inst.ChildRemoved:Connect(function(child)
-        if expanded then
+        if FrameCache[child] then
             FrameCache[child]:Destroy()
             FrameCache[child] = nil
         end
