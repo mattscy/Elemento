@@ -1,4 +1,5 @@
 local RowHeight = 14
+local IndentWidth = 12
 local Root = workspace
 
 
@@ -18,6 +19,7 @@ properties.Position = UDim2.fromScale(0, 0.5)
 
 local ui = Instance.new("ScreenGui")
 ui.Enabled = false
+ui.Archivable = false
 
 properties.Parent = window
 explorer.Parent = window
@@ -41,14 +43,14 @@ local function AddInstance(inst)
     button.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
     button.TextColor3 = Color3.new(1, 1, 1)
     button.BorderColor3 = Color3.fromRGB(200, 200, 200)
-    button.Text = inst.Name .. ` ({inst.ClassName})`
+    button.Text = inst.Name .. " (" .. inst.ClassName .. ")"
     button.TextXAlignment = Enum.TextXAlignment.Left
     button.Name = "Instance"
 
     local children = Instance.new("Frame")
     children.Size = UDim2.fromScale(1, 0)
-    children.Position = UDim2.fromOffset(12, RowHeight)
-    children.Size = UDim2.new(1, -12, 0, 0)
+    children.Position = UDim2.fromOffset(IndentWidth, RowHeight)
+    children.Size = UDim2.new(1, -IndentWidth, 0, 0)
     children.AutomaticSize = Enum.AutomaticSize.Y
     children.BackgroundTransparency = 1
     children.Name = "Children"
